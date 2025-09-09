@@ -1,5 +1,5 @@
 create database cinema;
-use cinema;
+use cinema2;
 
 create table ator (
 	codAtor varchar (3) primary key, 
@@ -8,22 +8,22 @@ create table ator (
 	nacionalidade varchar(20) not null, 
 	sexo char(1) not null, 
 	idade int not null, 
-	indicacaoOscar int not null, 
-	oscar int not null
+	indicacaoOscar int , 
+	oscar int 
 );
 
 create table filme (
 	codFilme varchar(3) primary key,
-    nomeFIlme varchar(40) not null,
+    nomeFilme varchar(40) not null,
     anoFilme int not null,
     orcamento int not null,
-    tempo int not null    
+    tempo int not null  
 );
 
 create table personagem(
-	codFilme varchar(3) primary key,
-    codAtor varchar(3) primary key,
-    codPersonagem varchar(3) primary key,
+	codFilme varchar(3),
+    codAtor varchar(3),
+    codPersonagem varchar(3),
     personagem varchar(40) not null,
     cache1 int not null,
     primary key (codFilme , codAtor , codPersonagem),
@@ -39,7 +39,7 @@ values ('a1' , 'Demi Moore' , 'Maria da Silva' , 'USA' , 'F' , 32 , null , null)
        ('a13' , 'Antony Hopkins' , 'Antony Richard Hopcroft' , 'USA' , 'M' , 65 , 6 , 3),
        ('a14' , 'Antônio Banderas' , 'Antônio Augusto Banderas' , 'Espanha' , 'M' , 34 , null , null),
        ('a15' , 'Tom Hanks' , 'Antony Hanks' , 'USA' , 'M' , 45 , 1 , 1),
-       ('a16' , 'Matt Damon' , 'Mattew Louis Damon' , 'USA' , 'M' , 40 , null , null)
+       ('a16' , 'Matt Damon' , 'Mattew Louis Damon' , 'USA' , 'M' , 40 , null , null),
        ('a17' , 'Jim Carrey' , 'James Carrey' , 'USA' , 'M' , 40 , null , null),
        ('a18' , 'Nicole Kidman' , 'Susan West' , 'Austrália' , 'F' , 33 , null , null),
        ('a19' , 'Val Kilmer' , 'Valerio Soza Kilmer' , 'Porto Rico' , 'M' , 40 , null , null),
@@ -57,7 +57,7 @@ values ('a1' , 'Demi Moore' , 'Maria da Silva' , 'USA' , 'F' , 32 , null , null)
        
 
 
-insert into filme 
+insert into filme
 values ('f1' , 'A Jurada' , 1996 , 1000000 , 18),
 	   ('f10' , 'Cidade das Sombras' , 1997 , 10000000 , 7),
 	   ('f11' , 'Irresistível Paixão' , 1998 , 10000000 , 10),
@@ -75,7 +75,7 @@ values ('f1' , 'A Jurada' , 1996 , 1000000 , 18),
 	   ('f22' , 'Chaplin' , 1993 , 8000000 , 14),
 	   ('f23' , 'Batman e Robin' , 1997 , 10000000 , 20),
 	   ('f24' , 'Strip Tease' , 1996 , 7000000 , 12),
-	   ('f25' , 'Passageiro' , 57 , 1993 , 200000000 , 15),
+	   ('f25' , 'Passageiro 57' , 1993 , 200000000 , 15),
 	   ('f26' , 'Forrest Gump' , 1996 , 90000000 , 15),
 	   ('3' , 'Seven' , 1995 , 15000000 , 20),
 	   ('f4' , 'Tootsie' , 1982 , 5000000 , 16),
@@ -84,7 +84,81 @@ values ('f1' , 'A Jurada' , 1996 , 1000000 , 18),
 	   ('f7' , 'Quando o Amor Acontece' , 1998 , 5000000 , 12),
 	   ('f8' , 'A Vingança de Bette' , 1998 , 10000000 , 9),
 	   ('f9' , 'Blade o Caçador de Vampiros' , 1998 , 100000000 , 18);
+       
+       
+insert into personagem
+values ('f1' , 'a1' , 'Mary' , 30000),
+	   ('f10' , 'a10' , 'Columbo' ,  3000000),
+       ('f11' , 'a11' , 'Johnny' , 8000000),
+       ('f11' , 'a12' , 'Holly' , 1000000),
+       ('f12' , 'a13' , 'Diego' , 5000000),
+       ('f12' , 'a14' , 'Pancho' , 8000000),
+       ('f13' , 'a16' , 'Roger' , 4000000),
+       ('f13' , 'a20' , 'Mary' , 5000000),
+       ('f14' , 'a15' , 'Roberts' , 10000000),
+       ('f14' , 'a16' , 'Edward' , 2000000),
+       ('f15' , 'a17' , 'Truman' , 12000000),
+       ('f16' , 'a17' , 'Charade' , 5000000),
+       ('f16' , 'a18' , 'Betty' , 7000000),
+       ('f16' , 'a19' , 'Bruce' , 8000000),
+       ('f17' , 'a14' , 'Bobby' , 4000000),
+       ('f17' , 'a15' , 'Bill' , 6000000),
+       ('f18' , 'a17' , 'Mascara' , 10000000),
+       ('f18' , 'a21' , 'Sammy' , 2000000),
+       ('f19' , 'a10' , 'Molina' , 2000000),
+       ('f19' , 'a5' , 'Aranha' , 80000),
+       ('f2' , 'a1' , 'Sandy' , 50000),
+       ('f20' , 'a11' , 'George' , 14000000),
+       ('f20' , 'a18' , 'Mary' , 5000000),
+       ('f21' , 'a17' , 'Ace' , 6000000),
+       ('f21' , 'a21' , 'Lola' , 1000000),
+       ('f22' , 'a8' , 'Chaplin' , 3000000),
+       ('f23' , 'a11' , 'Bruce' , 10000000),
+       ('f24' , 'a1' , 'Annie' , 18000000),
+       ('f25' , 'a9' , 'James' , 14000000),
+       ('f26' , 'a15' , 'Forrest' , 20000000),
+       ('f3' , 'a2' , 'John' , 50000),
+       ('f4' , 'a3' , 'Mary' , 1000000),
+       ('f4' , 'a4' , 'Tootsie' , 2000000),
+       ('f5' , 'a10' , 'Nacib' , 2500000),
+       ('f5' , 'a5' , 'Tieta' , 50000),
+       ('f6' , 'a6' , 'Robinson' , 3000000),
+       ('f7' , 'a7' , 'Suzy' , 3000000),
+       ('f7' , 'a8' , 'Bill' , 5000000),
+       ('f8' , 'a3' , 'Bette' , 3000000),
+	   ('f9' , 'a9' , 'Blade' , 100000000);
+       
+       
+       
+       
+update ator
+set nacionalidade = 'Reino Unido'
+where codAtor = 'a13';
 
+update ator
+set nomeArtistico = 'William Hurt'
+where codAtor = 'a10';
+
+update ator
+set idade = '36'
+where codAtor = 'a18';
+
+select * from ator;
+
+update filme
+set orcamento = 20000000
+where codFilme = 'f25';
+
+update filme
+set nomeFilme = 'Quem vai ficar com Mary'
+where codFilme = 'f13';
+
+select * from filme;
+
+/*terminar */
+update personagem
+set cache1 = 
+where cod = 'f25';
 
 
 
