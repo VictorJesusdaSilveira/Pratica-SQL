@@ -1,5 +1,5 @@
 create database cinema;
-use cinema2;
+use cinema1;
 
 create table ator (
 	codAtor varchar (3) primary key, 
@@ -155,10 +155,55 @@ where codFilme = 'f13';
 
 select * from filme;
 
-/*terminar */
 update personagem
-set cache1 = 
+set cache1 = 25000000
 where cod = 'f25';
 
+update personagem
+set personagem = 'Stanley Ipkiss'
+where codAtor = 'a17';
+
+update ator
+set nomeReal = 'William Bradley Pitt'
+where codAtor = 'a2';
+
+update filme
+set anoFilme = 1994
+where codFilme = 'f26';
+
+update filme
+set tempo = 120
+where codFilme = 'f1';
+
+update personagem
+set personagem = 'Stanley Ipkiss'
+where codAtor = 'a17';
+
+delete from ator 
+where codAtor = 'a22';
+
+delete from filme 
+where codFilme = 'f5';
+
+delete from personagem
+where codAtor = 'a18';
+
+delete from personagem
+where codAtor = 'a5';
+
+delete from personagem 
+where codAtor = 'a4';
+
+delete from personagem
+where codFilme = 'f1';
+
+delete from personagem
+where codFilme = 'f9';
+
+delete from personagem
+where codFilme = 'f4';
+
+delete from ator
+where codAtor = 'a1';
 
 
